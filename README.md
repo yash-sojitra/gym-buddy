@@ -33,9 +33,11 @@ Welcome to the Workout Tracker project! This project is a full-stack application
    
 4. **Set up environment variables:** 
 
-   Create a `.env` file and add your MongoDB connection string.
+   Create a `.env` file and add your MongoDB connection string. also add PORT variable to the file.
+   ```bash
+   PORT=4000
 
-6. **Run Backend Server for devlopment:**
+5. **Run Backend Server for devlopment:**
    ```bash
    npm run dev 
 
