@@ -58,10 +58,10 @@ Welcome to the Workout Tracker project! This project is a full-stack application
 1. Sign up/Login to MongoDB Atlas: MongoDB Atlas
 2. Create a new cluster and configure your database settings.
 3. Obtain your connection string:
-  - Go to your cluster dashboard.
-  - Click on "Connect" button.
-  - Select "Connect your application".
-  - Copy the connection string provided.
+      - Go to your cluster dashboard.
+      - Click on "Connect" button.
+      - Select "Connect your application".
+      - Copy the connection string provided.
 4. Add the connection string to your backend `.env` file:
      ```bash
      MONGODB_URI=your-connection-string
