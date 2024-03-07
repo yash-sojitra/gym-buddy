@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
@@ -6,7 +6,7 @@ import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 const Home = () => {
 
     const { workouts, dispatch } = useWorkoutsContext();
-    const [onAdd, setOnAdd] = useState(0)
+    // const [onAdd, setOnAdd] = useState(0)
 
     useEffect(() => {
         async function fetchData() {
@@ -20,7 +20,7 @@ const Home = () => {
             }
         }
         fetchData()
-    }, [])
+    }, [dispatch])
 
     return (
         <div className="home">
