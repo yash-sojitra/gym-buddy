@@ -21,6 +21,10 @@ app.use("/api/workouts", workoutRoutes)
 app.use("/api/user", userRoutes)
 app.use("/verify", verifyRoutes)
 
+app.get("/", (req, res) => {
+    res.send("hello from github actions")
+})
+
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         // console.log("success db");
