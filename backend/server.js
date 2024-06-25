@@ -5,6 +5,8 @@ const app = express()
 const bodyParser = require("body-parser")
 
 const workoutRoutes = require("./routes/workouts")
+const userRoutes = require("./routes/user")
+const verifyRoutes = require("./routes/verify")
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static("public"))
@@ -16,6 +18,8 @@ app.use((req, res, next) => {
 })
 
 app.use("/api/workouts", workoutRoutes)
+app.use("/api/user", userRoutes)
+app.use("/verify", verifyRoutes)
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {

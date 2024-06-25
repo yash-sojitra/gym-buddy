@@ -2,15 +2,21 @@ import { useEffect } from "react";
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
+import {useAuthContext} from '../hooks/useAuthContext'
 
 const Home = () => {
 
     const { workouts, dispatch } = useWorkoutsContext();
+    const { user } = useAuthContext()
     // const [onAdd, setOnAdd] = useState(0)
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch("/api/workouts")
+            const response = await fetch("/api/workouts",{
+                headers:{
+                    'Authorization':`Bearer ${user.token}`
+                }
+            })
             const json = await response.json()
 
             console.log(json);
@@ -19,7 +25,8 @@ const Home = () => {
                 dispatch({ type: "SET_WORKOUT", payload: json })
             }
         }
-        fetchData()
+        if (user) fetchData()
+        
     }, [dispatch])
 
     return (
