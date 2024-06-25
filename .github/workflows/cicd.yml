@@ -14,9 +14,9 @@ jobs:
       - name: Login to docker hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Docker Image
-        run : docker build -t yashsojitra/gymbuddy-nodejs .
+        run : cd backend && docker build -t yashsojitra/gymbuddy-nodejs .
       - name: Publish Image to Docker hub
-        run: docker push yashsojitra/gymbuddy-nodejs:latest
+        run: cd backend && docker push yashsojitra/gymbuddy-nodejs:latest
 
   deploy:
     needs: build
